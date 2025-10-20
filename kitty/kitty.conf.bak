@@ -1,0 +1,16 @@
+font_family Iosevka Nerd Font Mono
+font_size 17.0
+
+mouse_hide_wait -3.0
+
+remember_window_size yes
+
+hide_window_decorations yes
+
+
+
+
+# BEGIN_KITTY_THEME
+# 1984 Dark
+include current-theme.conf
+# END_KITTY_THEME
