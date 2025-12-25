@@ -1,0 +1,53 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "margin-bottom": 6,
+  "width": 1000,
+  "modules-left": ["network", "clock"],
+  "modules-center": ["sway/workspaces", "sway/mode"],
+  "modules-right": ["tray", "pulseaudio", "battery"],
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": {
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "discharging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    },
+    "max-length": 25,
+  },
+  "clock": {
+    "format": "{:%I:%M %p}", // 12-hour with AM/PM
+    "timezone": "Asia/Kolkata",
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": "󰕿",
+    "format-icons": {
+      "default": ["󰖀", "󰕾"],
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"],
+  },
+  "network": {
+    "interface": "wlp1s0",
+    "format": "{ifname}",
+    "format-wifi": "󰖩 {essid}",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "󰖩 {essid}",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10,
+  },
+}
