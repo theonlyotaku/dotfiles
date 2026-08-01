@@ -1,37 +1,25 @@
-# .bashrc
+#
+# ~/.bashrc
+#
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
-fi
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
-# User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
-export PATH
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+export LANG=en_US.UTF-8
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
+# eval "$(starship init bash)"
+eval "$(zoxide init bash)"
 
-# User specific aliases and functions
-if [ -d ~/.bashrc.d ]; then
-  for rc in ~/.bashrc.d/*; do
-    if [ -f "$rc" ]; then
-      . "$rc"
-    fi
-  done
-fi
-unset rc
+PS1='\[\e[38;5;241m\]\w\[\e[0m\] 󰘧 ' # prompt
 
-# -- Aliases --
-alias n="nvim"
+export PATH=$PATH:/home/ayush/.spicetify
+export PATH=$HOME/.local/bin:$PATH
+
+## CUSTOM ALIASES ##
+alias vim='nvim'
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-permissions --no-user"
 alias f='nvim $(fzf)'
-
-# -- Custom Prompt --
-PS1=' \[\e[38;5;70m\]\w\[\e[0m\] 󰁕 '
-
-# -- Eza --
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
-
-fastfetch
+alias cd='z'
+alias warp='/home/ayush/warp.sh'
