@@ -1,0 +1,19 @@
+#!/bin/bash
+
+B=$'\e[1m'
+C=$'\e[36m'
+R=$'\e[0m'
+
+os=$(. /etc/os-release && echo "$PRETTY_NAME")
+kernel=$(uname -r)
+uptime=$(uptime -p | sed 's/^up //')
+shell=$(basename "$SHELL")
+mem=$(free -h | awk '/^Mem:/ {print $3 " / " $2}')
+
+echo ""
+printf "${B}${C}%-8s${R} %s\n" \
+    "os"     "$os" \
+    "kernel" "$kernel" \
+    "uptime" "$uptime" \
+    "shell"  "$shell" \
+    "memory" "$mem" \
